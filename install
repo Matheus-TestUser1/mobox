@@ -4,10 +4,10 @@
 rm -f ~/x
 
 echo "Instalando termux-am"
-pkg install termux-am -y &>/dev/null
+pkg install termux-am -y 
 
 # Configurar armazenamento
-termux-setup-storage & sleep 4 &>/dev/null
+termux-setup-storage & sleep 4 
 
 # Aguardar permissão de armazenamento
 while [ ! -d ~/storage/shared ]; do
@@ -17,7 +17,7 @@ done
 
 # Instalar pacotes do Termux
 echo "Instalando pacotes do Termux"
-apt-get update >/dev/null 2>&1
+apt-get update -y
 apt-get -y --with-new-pkgs -o Dpkg::Options::="--force-confdef" upgrade >/dev/null 2>&1
 pkg install x11-repo pulseaudio xwayland wget tsu root-repo patchelf p7zip xorg-xrandr ncurses-utils hashdeep termux-x11-nightly -y &>/dev/null
 
